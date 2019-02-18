@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
-import { getFilteredTasks, reorder } from '../../helpers/todo-helpers';
+import { reorder } from '../../helpers/todo-helpers';
 
-const TaskList =({ tasks, filter, onDelete, onChangeStatus, onTaskEdit, onTasksReorder }) => {
+const TaskList =({ tasks, onDelete, onChangeStatus, onTaskEdit, onTasksReorder }) => {
   const onDragEnd = ({ destination, source }) => {
     if(!destination) {
       return;
@@ -14,14 +14,12 @@ const TaskList =({ tasks, filter, onDelete, onChangeStatus, onTaskEdit, onTasksR
     return onTasksReorder(reorderedList);
   }
 
-  const filtered = getFilteredTasks(tasks, filter);
-
   return (
     <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="tasklist">
         {provided => (
           <section ref={provided.innerRef} className="checklist">
-            {filtered.map(({ id, title, completed }, index) => 
+            {tasks.map(({ id, title, completed }, index) => 
                 <Task 
                     key={id}
                     index={index}
@@ -46,7 +44,6 @@ TaskList.propTypes = {
     completed: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
   })),
-  filter: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
   onChangeStatus: PropTypes.func.isRequired,
   onTaskEdit: PropTypes.func.isRequired,
