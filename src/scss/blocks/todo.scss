@@ -1,0 +1,17 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+
+  & .todo__btn {
+    align-self: center;
+    margin-top: 20px;
+  }
+
+  & .todo__show-form-btn {
+    margin-top: 20px;
+
+    &.hide {
+      display: none;
+    }
+  }
+}

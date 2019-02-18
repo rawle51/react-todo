@@ -1,0 +1,35 @@
+$shadow: 0 17px 11px -10px rgba(0, 0, 0, 0.2);
+
+.link {
+  display: block;
+  padding: 0 16px;
+  text-align: center;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 2px;
+  background: linear-gradient(45deg, #d350db, teal, #d350db);
+  background-size: 400% 400%;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+
+  &--center {
+    margin: 0 auto;
+  }
+
+  &--shadow {
+    box-shadow: $shadow;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 17px 11px -13px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.edit-form {
+  display: flex;
+  justify-content: space-between;
+
+  & .edit-form__input {
+      width: 85%;
+      border: none;
+      border-bottom: 1px solid rgba(158,158,158,.4);
+      
+  }
+}

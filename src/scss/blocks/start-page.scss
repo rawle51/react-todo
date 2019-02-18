@@ -1,0 +1,28 @@
+@mixin background-text-gradient {
+  background: linear-gradient(45deg, #421744, rgb(12, 38, 95), #410344);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.start-page {
+  margin-top: 30vh;
+  text-align: center;
+
+  & .start-page__title {
+    @include background-text-gradient;
+    margin: 20px 0;
+  }
+
+  & .start-page__form-error {
+    display: none;
+    color: #b3154a;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin: 10px auto 0;
+    vertical-align: middle;
+  }
+
+  & .start-page__btn {
+    margin: 20px auto 0;
+  }
+}
