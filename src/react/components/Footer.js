@@ -29,7 +29,7 @@ export default memo(() =>
   <Container>
     <InnerContainer>
       <StyledText>Source code on Github</StyledText>
-      <StyledLink href="https://github.com/rawle51/react-checklist" target="_blank" >
+      <StyledLink href="https://github.com/rawle51/react-todo" target="_blank" >
         <img src={githubLogo} alt="github logo" width="50" height="45" />
       </StyledLink>
     </InnerContainer> 
