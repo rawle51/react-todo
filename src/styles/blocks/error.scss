@@ -1,0 +1,14 @@
+.error__title {
+  color: #b3154a;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 10px;
+
+  &--big {
+    font-size: 22px;
+  }
+
+  &--hide {
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+.app-form {
+  display: flex;
+  margin-top: 10px;
+
+  &__label {
+    color: rgb(48, 47, 47);
+    text-transform: uppercase;
+
+    &--margin-bottom {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__input {
+    width: 300px;
+    align-self: center;
+    border: none;
+    border-bottom: 1px solid lightgray;
+
+    &--wide {
+      width: 85%;
+    }
+  }
+
+  &__btn {
+    color: #fff;
+
+    &:hover {
+        color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  &__add-btn  {
+    margin: 0 auto;
+    margin-top: 20px;
+    // outline: none;
+  }
+}

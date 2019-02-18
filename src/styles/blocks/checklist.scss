@@ -1,0 +1,20 @@
+.checklist__item {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+
+  &-title {
+    margin-right: auto;
+    margin-left: 10px;
+
+    .completed {
+      color: rgba(158,158,158,.4);
+      text-decoration: line-through;
+    }
+  }
+
+  &:hover .delete,
+  &:hover .edit  {
+    display: block;
+  }
+}

@@ -1,0 +1,11 @@
+.filter {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  & .active {
+    text-decoration: underline;
+  }
+}

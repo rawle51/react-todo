@@ -1,0 +1,13 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+
+  &__btn {
+    align-self: center;
+    margin-top: 20px;
+  }
+
+  &__show-form-btn {
+    margin-top: 20px;
+  }
+}
