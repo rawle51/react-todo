@@ -10,7 +10,6 @@ import './styles/main.scss';
 // TODO create sepate routes file
 // TODO write server and async function with loader to get tasks from server
 // TODO add eslint airbnb config to project
-// holy shit - todo is gona be like a real project =) sounds fun!
 
 class App extends Component {
   render() {
@@ -23,7 +22,6 @@ class App extends Component {
               <Route path="/todos" render={() => <TodoDashboard />} />
               <Route component={NotFound} />
             </Switch>
-              
           </div>
         </Router>
         <Footer />
