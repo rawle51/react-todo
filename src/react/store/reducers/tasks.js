@@ -1,11 +1,11 @@
-import { nextId, ADD, DELETE, EDIT, COMPLETE, REORDER, FETCH_DATA_SUCCESS } from '../actions/actions.js';
+import { ADD, DELETE, EDIT, COMPLETE, REORDER, FETCH_DATA_SUCCESS } from '../actions/actions.js';
 import initialState from '../data';
 
 function tasks(state = initialState.tasks, action) {
   switch(action.type) {
     case ADD:
       const task = {
-        id: nextId,
+        id: action.id,
         title: action.title,
         completed: false      
       }

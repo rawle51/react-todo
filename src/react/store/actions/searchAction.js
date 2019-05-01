@@ -1,8 +1,6 @@
 export const SEARCH = 'SEARCH';
 
-export function searchTasksAction(name) {
-  return {
-    type: SEARCH,
-    name
-  }
-}
+export const searchTasksAction = search => ({
+  type: SEARCH,
+  search,
+});

@@ -8,13 +8,11 @@ export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 
 export let nextId = initialState.tasks.length + 1;
 
-export function addTaskAction(title) {
-  return {
-    type: ADD,
-    title,
-    id: nextId++
-  }
-}
+export const addTaskAction = title => ({
+  type: ADD,
+  title,
+  id: nextId++,
+});
 
 export function deleteTasklAction(id) {
   return {
@@ -38,25 +36,10 @@ export const editTaskAction = (id, title) => {
   }
 }
 
-const mockTodo = [
-  {
-    id : nextId++,
-    title : "Learn redux middleware",
-    completed : true
-  },
-  {
-    id : nextId++,
-    title : "Learn redux thunk",
-    completed : true
-  },
-  
-]
-
-export const getDefaultTodoTasks = () => dispatch => {
+export const getDefaultTodoTasks = list => dispatch =>
   setTimeout(() => {
     dispatch({
       type: FETCH_DATA_SUCCESS,
-      payload: mockTodo,
+      list,
     })
   }, 1000);
-};

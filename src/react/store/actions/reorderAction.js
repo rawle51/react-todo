@@ -1,8 +1,6 @@
 export const REORDER = "REORDER";
 
-export function reorderAction(list) {
-  return {
-    type: REORDER,
-    list
-  }
-}
+export const reorderAction = list => ({
+  type: REORDER,
+  list,
+});
