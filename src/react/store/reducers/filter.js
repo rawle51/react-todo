@@ -1,8 +1,8 @@
-import initialState from './../data';
-import { FILTER } from '../actions/actions.js';
+import initialState from '../data';
+import { FILTER } from '../actions/actions';
 
 function filter(state = initialState.filter, action) {
-  switch(action.type) {
+  switch (action.type) {
     case FILTER:
       return action.filter;
     default: return state;
