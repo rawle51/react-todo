@@ -1,5 +1,4 @@
 import {
-  nextId,
   ADD_TITLE,
   FILTER,
   REORDER,
@@ -17,6 +16,8 @@ import {
   completeTaskAction,
   editTaskAction,
 } from './actions';
+
+import initialState from '../data';
 
 describe('actions', () => {
   it('test title action', () => {
@@ -71,20 +72,20 @@ describe('actions', () => {
 
   it('test add/edit actions', () => {
     const title = 'Test add && delete actions';
-    const id = nextId;
+    let nextId = initialState.tasks.length + 1;
     const expectedAddAction = {
       type: ADD,
       title,
-      id,
+      id: nextId += 1,
     };
 
     const expectedEditAction = {
       type: EDIT,
-      id,
+      id: nextId,
       title,
     };
 
     expect(addTaskAction(title)).toEqual(expectedAddAction);
-    expect(editTaskAction(id, title)).toEqual(expectedEditAction);
+    expect(editTaskAction(nextId, title)).toEqual(expectedEditAction);
   });
 });

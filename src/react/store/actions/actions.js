@@ -1,5 +1,4 @@
 export {
-  nextId,
   ADD,
   DELETE,
   EDIT,
@@ -9,9 +8,8 @@ export {
   deleteTasklAction,
   completeTaskAction,
   editTaskAction,
-  getDefaultTodoTasks,
-} from './taskAction.js';
-export { SEARCH, searchTasksAction } from './searchAction.js';
-export { FILTER, filterAction } from './filterAction.js';
-export { REORDER, reorderAction } from './reorderAction.js';
+} from './taskAction';
+export { SEARCH, searchTasksAction } from './searchAction';
+export { FILTER, filterAction } from './filterAction';
+export { REORDER, reorderAction } from './reorderAction';
 export { ADD_TITLE, addTitleAction } from './titleAction';
