@@ -7,5 +7,5 @@ import { applyMiddleware } from 'redux';
 export default applyMiddleware(
   thunk,
   // localStorageMiddleware([TASK_LIST, 'title']),
-  logger
+  logger,
 );

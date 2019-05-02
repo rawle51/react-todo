@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
 const currentFilter = ({ filter }) => filter;
 const getTodos = ({ tasks }) => tasks;
@@ -6,14 +6,14 @@ const getTodos = ({ tasks }) => tasks;
 export const getFilteredTasks = createSelector(
   [getTodos, currentFilter],
   (tasks, filter) => {
-    switch(filter) {
-      case "ALL":
+    switch (filter) {
+      case 'ALL':
         return tasks;
-      case "COMPLETED":
+      case 'COMPLETED':
         return tasks.filter(t => t.completed);
-      case "UNCOMPLETED":
+      case 'UNCOMPLETED':
         return tasks.filter(t => !t.completed);
       default: return tasks;
-    };
-  }
+    }
+  },
 );

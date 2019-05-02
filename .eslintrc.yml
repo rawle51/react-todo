@@ -1,9 +1,11 @@
+parser: babel-eslint
+extends: airbnb
 env:
   browser: true
   es6: true
 plugins:
   - react
-extends: airbnb
+
 
 rules:
   camelcase: 1
