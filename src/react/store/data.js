@@ -1,22 +1,22 @@
 export default {
   tasks: [
     {
-      id : 1,
-      title : 'Learn React',
-      completed : true
+      id: 1,
+      title: 'Learn React',
+      completed: true,
     },
 
     {
       id: 2,
       title: 'Leacn Redux',
-      completed: true  
+      completed: true,
     },
 
     {
       id: 3,
       title: 'Learn TypeScript',
-      completed: false  
-    }
+      completed: false,
+    },
   ],
 
   filter: 'ALL',

@@ -6,17 +6,21 @@ import styled from 'styled-components';
 const StyledLink = styled.a`
   color: #000;
   text-decoration: none;
+  cursor: pointer;
 `;
 
-const Filter = ({ id, active, onClick, children }) => (
+const Filter = ({ active, onClick, children }) => (
   <StyledLink
-    id={id}
     className={classNames('', { active })}
     onClick={onClick}
   >
     {children}
   </StyledLink>
 );
+
+Filter.defaultProps = {
+  active: false,
+};
 
 Filter.propTypes = {
   children: PropTypes.node.isRequired,

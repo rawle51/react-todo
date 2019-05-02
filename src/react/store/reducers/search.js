@@ -1,7 +1,7 @@
-import { SEARCH } from './../actions/actions.js';
+import { SEARCH } from '../actions/actions';
 
 function search(state = '', action) {
-  switch(action.type) {
+  switch (action.type) {
     case SEARCH:
       return action.name;
 

@@ -4,38 +4,44 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
 import { reorder } from '../../helpers/todo-helpers';
 
-const TaskList =({ tasks, onDelete, onChangeStatus, onTaskEdit, onTasksReorder }) => {
+const TaskList = ({ tasks, onDelete, onChangeStatus, onTaskEdit, onTasksReorder }) => {
   const onDragEnd = ({ destination, source }) => {
-    if(!destination) {
+    if (!destination) {
       return;
     }
 
-    const reorderedList = reorder(tasks, source.index, destination.index)
-    return onTasksReorder(reorderedList);
-  }
+    const reorderedList = reorder(tasks, source.index, destination.index);
+    onTasksReorder(reorderedList);
+  };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="tasklist">
+      <Droppable droppableId="tasklist">
         {provided => (
           <section ref={provided.innerRef} className="checklist">
-            {tasks.map(({ id, title, completed }, index) => 
-                <Task 
-                    key={id}
-                    index={index}
-                    id={id}
-                    title={title}
-                    completed={completed}
-                    onChangeStatus={onChangeStatus}
-                    onDelete={onDelete}
-                    onTaskEdit={onTaskEdit}
-                />)
+            {tasks.map(({ id, title, completed }, index) => (
+              <Task
+                key={id}
+                index={index}
+                id={id}
+                title={title}
+                completed={completed}
+                onChangeStatus={onChangeStatus}
+                onDelete={onDelete}
+                onTaskEdit={onTaskEdit}
+              />
+            ))
             }
+            {provided.placeholder}
           </section>
-        )}
-        </Droppable>
-      </DragDropContext>
+      )}
+      </Droppable>
+    </DragDropContext>
   );
+};
+
+TaskList.defaultProps = {
+  tasks: [],
 };
 
 TaskList.propTypes = {

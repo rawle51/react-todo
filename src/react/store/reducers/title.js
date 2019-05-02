@@ -1,8 +1,8 @@
-import initialState from './../data';
-import { ADD_TITLE } from '../actions/actions.js';
+import initialState from '../data';
+import { ADD_TITLE } from '../actions/actions';
 
 function title(state = initialState.title, action) {
-  switch(action.type) {
+  switch (action.type) {
     case ADD_TITLE:
       return action.title;
     default: return state;

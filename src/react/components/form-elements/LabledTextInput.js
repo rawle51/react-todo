@@ -23,13 +23,18 @@ const LabledTextInput = ({
   </Fragment>
 );
 
+LabledTextInput.defaultProps = {
+  labelClassname: '',
+  inputClassname: '',
+};
+
 LabledTextInput.propTypes = {
   labelClassname: PropTypes.string,
   inputClassname: PropTypes.string,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired, // temporary is required (before I need uncontrolled component, but I won`t =) )
-}
+  onChange: PropTypes.func.isRequired,
+};
 
 export default LabledTextInput;

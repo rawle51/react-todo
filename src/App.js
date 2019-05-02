@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './react/layouts/Home';
 import TodoDashboard from './react/layouts/TodoDashboard';
@@ -11,23 +11,19 @@ import './styles/main.scss';
 // TODO write server and async function with loader to get tasks from server
 // TODO add eslint airbnb config to project
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <div>
-            <Switch>
-              <Route exact path="/" render={() => <Home />} />
-              <Route path="/todos" render={() => <TodoDashboard />} />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
-        </Router>
-        <Footer />
+const App = () => (
+  <div className="App">
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" render={() => <Home />} />
+          <Route path="/todos" render={() => <TodoDashboard />} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
-    );
-  }
-}
+    </Router>
+    <Footer />
+  </div>
+);
 
 export default App;

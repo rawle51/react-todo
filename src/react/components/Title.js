@@ -9,6 +9,6 @@ const Title = ({ title }) => (
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-}
+};
 
 export default memo(Title);

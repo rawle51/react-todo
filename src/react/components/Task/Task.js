@@ -1,61 +1,51 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Draggable } from 'react-beautiful-dnd';
 import TaskForm from './TaskForm';
 import Checkbox from '../form-elements/Checkbox';
 import Button from '../form-elements/Button';
 
-class Task extends PureComponent {
-  state = {
-    editing: false,
-    title: this.props.title,
-  }
+const Task = ({ id, index, title, completed, onDelete, onChangeStatus, onTaskEdit }) => {
+  const [editMode, setEditMode] = useState(false);
+  const [newTitle, handleCange] = useState(title);
 
-  handleSubmit = event => {
-    const { id, onTaskEdit } = this.props;
-    const { title } = this.state;
+  const handleSubmit = () => {
+    onTaskEdit(id, newTitle);
+    setEditMode(false);
+  };
 
-    onTaskEdit(id, title);
-    this.setState({ editing: false });
-  }
-  
-  handleEdit = ({ target: { value: title } }) => this.setState({ title });
+  return editMode ?
+    <TaskForm
+      onClick={handleSubmit}
+      onChange={e => handleCange(e.target.value)}
+      title={newTitle}
+    /> :
+    <Draggable draggableId={id} index={index}>
+      {provided => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          className="checklist__item"
+        >
+          <Checkbox checked={completed} onChange={() => onChangeStatus(id)} />
+          <span className={classNames('checklist__item-title', { completed })}>{newTitle}</span>
+          <Button className="edit icon" icon="edit" type="button" onClick={() => setEditMode(true)} />
+          <Button className="delete icon" icon="delete" type="button" onClick={() => onDelete(id)} />
+        </div>
+      )}
+    </Draggable>;
+};
 
-  changeToEditMode = () => this.setState(() => ({ editing: true }));
-
-  renderTask() {
-    const { id, index, title, completed, onDelete, onChangeStatus } = this.props;
-
-    return (
-      <Draggable draggableId={id} index={index}>
-        {provided => (
-          <div
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            className="checklist__item"
-          >
-            <Checkbox checked={completed} onChange={() => onChangeStatus(id)} />
-            <span className={classNames('checklist__item-title', { completed })}>{title}</span>
-            <Button className="edit icon" icon="edit" type="button" onClick={this.changeToEditMode} />
-            <Button className="delete icon" icon="delete" type="button" onClick={() => onDelete(id)} />
-          </div>
-        )}
-      </Draggable>
-    );
-  }
-
-    renderForm() {
-      const { title } = this.state;
-
-      return (
-        <TaskForm onClick={this.handleSubmit} onChange={this.handleEdit} title={title} />
-      );
-    }
-
-    render() {
-        return this.state.editing ? this.renderForm() : this.renderTask();
-    }
-}
+Task.propTypes = {
+  id: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onChangeStatus: PropTypes.func.isRequired,
+  onTaskEdit: PropTypes.func.isRequired,
+};
 
 export default Task;
