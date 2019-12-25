@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TaskList from '../components/Task/TaskList';
-import { reorderAction, deleteTasklAction, completeTaskAction, editTaskAction } from '../store/actions/actions';
+import { reorderAction, deleteTasklAction, completeTaskAction, editTaskAction } from '../store/actions';
 import { getFilteredTasks } from '../selectors/tasks-selector';
 
 export default connect(

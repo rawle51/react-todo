@@ -1,14 +1,12 @@
 import { useState } from 'react';
 
-const useToggle = ({ isVisible }) => {
+export const useToggle = (isVisible) => {
   const [isOpen, setVisible] = useState(isVisible);
 
-  const toggleHandler = () => setVisible(value => ({ isOpen: !value }));
+  const toggleHandler = () => setVisible(state => !state);
 
   return {
     isOpen,
     toggleHandler,
   };
 };
-
-export default useToggle;

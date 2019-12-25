@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Draggable } from 'react-beautiful-dnd';
 import TaskForm from './TaskForm';
-import Checkbox from '../form-elements/Checkbox';
-import Button from '../form-elements/Button';
+import { Button, Checkbox } from '../FormElements';
 
 const Task = ({ id, index, title, completed, onDelete, onChangeStatus, onTaskEdit }) => {
   const [editMode, setEditMode] = useState(false);
@@ -21,7 +20,7 @@ const Task = ({ id, index, title, completed, onDelete, onChangeStatus, onTaskEdi
       onChange={e => handleCange(e.target.value)}
       title={newTitle}
     /> :
-    <Draggable draggableId={id} index={index}>
+    <Draggable draggableId={id.toString()} index={index}>
       {provided => (
         <div
           ref={provided.innerRef}
