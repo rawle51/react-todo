@@ -14,16 +14,10 @@ export const Error = styled.span`
 `;
 
 export const InputContainer = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
-
-  input {
-    min-width: 300px;
-    align-self: center;
-    border: none;
-    border-bottom: 1px solid lightgray;
-    outline: none;
-  }
+  margin: 0 auto;
 `;
 
 export const Input = styled(LabledTextInput)`

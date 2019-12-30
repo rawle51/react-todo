@@ -4,10 +4,11 @@ import { string } from 'prop-types';
 
 import { Filter } from '../../components/Filter';
 import { AddTaskForm } from '../../components/Forms';
+import { Loader } from '../../components/Loader';
 import { setTitle } from '../../helpers/document-helpers';
 import * as Styled from './Style';
 
-const Tasks = lazy(() => import('../../containers/TasksContainer'));
+const Tasks = lazy(() => import('../../components/TaskList'));
 
 const Component = memo(({
   title,
@@ -20,7 +21,11 @@ const Component = memo(({
         <Styled.Title>{title}</Styled.Title>
       </Styled.Header>
       <Filter />
-      <Suspense fallback="Tasks is loading...">
+      <Suspense fallback={(
+        <Styled.LoaderWrapper>
+          <Loader />
+        </Styled.LoaderWrapper>)}
+      >
         <Tasks />
       </Suspense>
       <AddTaskForm />

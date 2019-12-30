@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './react/App';
+
+import { App } from './react/App';
 import { store } from './react/store/store';
-import * as serviceWorker from './serviceWorker';
 
 const root = document.getElementById('root');
 
@@ -12,5 +12,3 @@ createRoot(root).render(
     <App />
   </Provider>,
 );
-
-serviceWorker.unregister();

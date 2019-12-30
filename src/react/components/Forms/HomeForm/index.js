@@ -31,9 +31,10 @@ export const HomeForm = ({ addTitleAction }) => {
     <Styled.InputContainer>
       <LabledTextInput
         name="todo-title"
-        label="Name your task list"
+        label="Your title"
         value={title}
         onChange={onChange}
+        id="todo-title"
       />
       {isError && (
         <Styled.Error>Ooops..to continue fill the title</Styled.Error>
@@ -41,6 +42,7 @@ export const HomeForm = ({ addTitleAction }) => {
       <Styled.CreateButton
         onClick={handleSubmit}
         isShadow
+        id="button-crete-title"
       >
         Create
       </Styled.CreateButton>

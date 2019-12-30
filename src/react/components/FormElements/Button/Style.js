@@ -18,6 +18,7 @@ export const Button = styled.button`
   text-decoration: none;
   border: none;
   cursor: pointer;
+  outline: none;
 
   &:hover {
     background-color: rgba(158,158,158,.2);

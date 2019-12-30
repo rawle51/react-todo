@@ -1,11 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const textGradient = css`
-  background: linear-gradient(45deg, #421744, rgb(12, 38, 95), #410344);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
+import { backgroundGradient } from '../../styles';
 
 export const Container = styled.div`
   margin-top: 30vh;
@@ -13,6 +8,6 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  ${textGradient};
+  ${backgroundGradient};
   margin: 20px 0;
 `;

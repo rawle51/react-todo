@@ -4,14 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home, NotFound, Dashboard } from './pages';
 import { Footer } from './components/Footer';
 import { routes } from '../routes';
-import { GlobalStyle } from './GlobalStyle';
-import '../styles/main.scss';
+import { GlobalStyle } from './styles';
 
-// TODO rewrite ALL project within styled components library
 // TODO write server and async function with loader to get tasks from server
 // TODO add eslint airbnb config to project
 
-const App = () => (
+export const App = () => (
   <>
     <GlobalStyle />
     <Router>
@@ -24,5 +22,3 @@ const App = () => (
     <Footer />
   </>
 );
-
-export default App;
