@@ -1,6 +1,6 @@
 import {
  ADD, DELETE, EDIT, COMPLETE, REORDER, FETCH_DATA_SUCCESS,
-} from '../actions/actions';
+} from '../actions';
 import initialState from '../data';
 
 function tasks(state = initialState.tasks, action) {

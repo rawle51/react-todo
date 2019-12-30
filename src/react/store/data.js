@@ -8,7 +8,7 @@ export default {
 
     {
       id: 2,
-      title: 'Leacn Redux',
+      title: 'Learn Redux',
       completed: true,
     },
 

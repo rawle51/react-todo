@@ -1,5 +1,5 @@
 import initialState from '../data';
-import { ADD_TITLE } from '../actions/actions';
+import { ADD_TITLE } from '../actions';
 
 function title(state = initialState.title, action) {
   switch (action.type) {

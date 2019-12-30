@@ -1,5 +1,5 @@
 import initialState from '../data';
-import { FILTER } from '../actions/actions';
+import { FILTER } from '../actions';
 
 function filter(state = initialState.filter, action) {
   switch (action.type) {

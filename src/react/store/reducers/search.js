@@ -1,4 +1,4 @@
-import { SEARCH } from '../actions/actions';
+import { SEARCH } from '../actions';
 
 function search(state = '', action) {
   switch (action.type) {
