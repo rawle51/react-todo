@@ -1,5 +1,4 @@
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
 import { applyMiddleware } from 'redux';
 // import localStorageMiddleware from './local-storage';
 // import { TASK_LIST } from './../constants/index';
@@ -7,5 +6,4 @@ import { applyMiddleware } from 'redux';
 export default applyMiddleware(
   thunk,
   // localStorageMiddleware([TASK_LIST, 'title']),
-  logger,
 );
