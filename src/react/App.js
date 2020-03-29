@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home, NotFound, Dashboard } from './pages';
 import { Footer } from './components/Footer';
 import { routes } from '../routes';
 import { GlobalStyle } from './styles';
@@ -14,9 +13,9 @@ export const App = () => (
     <GlobalStyle />
     <Router>
       <Switch>
-        <Route exact path={routes.home} component={Home} />
-        <Route path={routes.todos} component={Dashboard} />
-        <Route component={NotFound} />
+        {routes.map(({ component, path, exact }) => (
+          <Route path={path} component={component} exact={exact} />
+        ))}
       </Switch>
     </Router>
     <Footer />

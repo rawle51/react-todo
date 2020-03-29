@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import { LabledTextInput } from '../../FormElements';
-import { routes } from '../../../../routes';
 import * as Styled from './Style';
 
 export const HomeForm = ({ addTitleAction }) => {
@@ -25,7 +24,7 @@ export const HomeForm = ({ addTitleAction }) => {
     return setState(prevState => ({ ...prevState, isError: true }));
   };
 
-  if (isRedirect) return <Redirect to={routes.todos} />;
+  if (isRedirect) return <Redirect to="/todos" />;
 
   return (
     <Styled.InputContainer>
