@@ -2,7 +2,6 @@ import {
   ADD_TITLE,
   FILTER,
   REORDER,
-  SEARCH,
   ADD,
   DELETE,
   EDIT,
@@ -10,7 +9,6 @@ import {
   reorderAction,
   addTitleAction,
   filterAction,
-  searchTasksAction,
   addTaskAction,
   deleteTasklAction,
   completeTaskAction,
@@ -45,15 +43,6 @@ describe('actions', () => {
       list,
     };
     expect(reorderAction(list)).toEqual(expectedAction);
-  });
-
-  it('test search action', () => {
-    const search = 'Learn Jest';
-    const expectedAction = {
-      type: SEARCH,
-      search,
-    };
-    expect(searchTasksAction(search)).toEqual(expectedAction);
   });
 
   it('test complete/delete actions', () => {

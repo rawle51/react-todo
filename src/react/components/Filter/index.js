@@ -10,7 +10,7 @@ import {
 } from 'prop-types';
 
 import { FilterLink } from './FilterLink';
-import { filterAction } from '../../store/actions';
+import { filterAction } from '../../store/modules/filter/actions';
 import * as Styled from './Style';
 
 const Component = memo(({ tasks, filterAction: setFilter, filter }) => {

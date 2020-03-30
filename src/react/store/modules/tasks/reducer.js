@@ -1,9 +1,9 @@
+import { tasks as initialState } from '../../data';
 import {
- ADD, DELETE, EDIT, COMPLETE, REORDER, FETCH_DATA_SUCCESS,
-} from '../actions';
-import initialState from '../data';
+  ADD, DELETE, EDIT, COMPLETE, REORDER,
+} from './actions';
 
-function tasks(state = initialState.tasks, action) {
+export const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD: {
       const task = {
@@ -37,11 +37,6 @@ function tasks(state = initialState.tasks, action) {
     case REORDER:
       return action.list;
 
-    case FETCH_DATA_SUCCESS:
-      return [...state, ...action.payload];
-
     default: return state;
   }
-}
-
-export default tasks;
+};
