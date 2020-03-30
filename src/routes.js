@@ -12,5 +12,5 @@ export const routes = [
   },
   {
     component: NotFound,
-  }
+  },
 ];

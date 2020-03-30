@@ -5,7 +5,7 @@ import PlaylistAddRoundedIcon from '@material-ui/icons/PlaylistAddRounded';
 
 import { Button, Input } from '../../FormElements';
 import { useToggle } from '../../../hooks/useToggle';
-import { addTaskAction } from '../../../store/actions';
+import { addTaskAction } from '../../../store/modules/tasks/actions';
 import * as Styled from './Style';
 
 export const Component = memo(({ addTaskAction: onAdd }) => {

@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { connect } from 'react-redux';
 
 import { HomeForm } from '../../components/Forms';
-import { addTitleAction } from '../../store/actions';
+import { addTitleAction } from '../../store/modules/title';
 import * as Styled from './Style';
 
 const Component = memo(props => (

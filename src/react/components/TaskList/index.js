@@ -4,7 +4,9 @@ import { func, string, bool, number, arrayOf, shape } from 'prop-types';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 import { Task } from './Task';
-import { reorderAction, deleteTasklAction, completeTaskAction, editTaskAction } from '../../store/actions';
+import {
+  reorderAction, deleteTasklAction, completeTaskAction, editTaskAction,
+} from '../../store/modules/tasks/actions';
 import { getFilteredTasks } from '../../selectors/tasks-selector';
 import { reorder } from '../../helpers/todo-helpers';
 import * as Styled from './Style';
