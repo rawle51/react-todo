@@ -13,8 +13,8 @@ export const App = () => (
     <GlobalStyle />
     <Router>
       <Switch>
-        {routes.map(({ component, path, exact }) => (
-          <Route path={path} component={component} exact={exact} />
+        {routes.map(({ component, path, exact, id }) => (
+          <Route path={path} component={component} exact={exact} key={id} />
         ))}
       </Switch>
     </Router>
