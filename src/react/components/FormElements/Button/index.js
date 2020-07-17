@@ -1,26 +1,34 @@
 import React from 'react';
-import { func, bool, node } from 'prop-types';
+import { func, bool, node, string } from 'prop-types';
 
 import * as Styled from './Style';
 
 export const Button = ({
-  onClick,
-  isShadow = false,
+  innerRef,
   children,
   ...otherProps
 }) => (
   <Styled.Button
-    onClick={onClick}
-    type="text"
-    isShadow={isShadow}
+    ref={innerRef}
     {...otherProps}
   >
     {children}
   </Styled.Button>
 );
 
+Button.defaultProps =  {
+  type: 'text',
+  isShadow: false,
+  innerRef: null,
+  onClick: Function.prototype,
+  disabled: false,
+};
+
 Button.propTypes = {
-  onClick: func.isRequired,
+  onClick: func,
   children: node.isRequired,
-  isShadow: bool.isRequired,
+  isShadow: bool,
+  type: string,
+  innerRef: func,
+  disabled: bool,
 };

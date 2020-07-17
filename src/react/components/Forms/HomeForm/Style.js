@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button, LabledTextInput } from '../../FormElements';
+import { Button } from '../../FormElements';
 
 export const CreateButton = styled(Button)`
   margin: 20px auto 0;
@@ -18,8 +18,4 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-`;
-
-export const Input = styled(LabledTextInput)`
-
 `;

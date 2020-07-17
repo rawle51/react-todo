@@ -1,50 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { Form, Field } from 'react-final-form';
 
 import { LabledTextInput } from '../../FormElements';
 import * as Styled from './Style';
 
 export const HomeForm = ({ addTitleAction }) => {
-  const [state, setState] = useState({
-    title: '',
-    isRedirect: false,
-    isError: false,
-  });
-  const { title, isRedirect, isError } = state;
+  const [isRedirect, setIsRedirect] = useState(false);
 
-  const onChange = e => setState({ title: e.target.value });
-
-  const handleSubmit = () => {
-    if (title) {
-      addTitleAction(title);
-      return setState({ isRedirect: true });
+  const onSubmit = useCallback((values = {}) => {
+    const { todoTitle } = values;
+    if (todoTitle) {
+      addTitleAction(todoTitle);
+      setIsRedirect(true);
     }
-
-    return setState(prevState => ({ ...prevState, isError: true }));
-  };
+  }, [setIsRedirect, addTitleAction]);
 
   if (isRedirect) return <Redirect to="/todos" />;
 
   return (
     <Styled.InputContainer>
-      <LabledTextInput
-        name="todo-title"
-        label="Your title"
-        value={title}
-        onChange={onChange}
-        id="todo-title"
-      />
-      {isError && (
-        <Styled.Error>Ooops..to continue fill the title</Styled.Error>
-      )}
-      <Styled.CreateButton
-        onClick={handleSubmit}
-        isShadow
-        id="button-crete-title"
-      >
-        Create
-      </Styled.CreateButton>
+      <Form onSubmit={onSubmit}>
+        {({ handleSubmit, values }) => (
+          <form onSubmit={formValues => handleSubmit(formValues)}>
+            <Field name="todoTitle">
+              {({ input, meta }) => (
+                <>
+                  <LabledTextInput
+                    label="Your title"
+                    id="todoTitle"
+                    {...input}
+                  />
+                  {meta.error && <Styled.Error>Ooops..to continue fill the title</Styled.Error>}
+                </>
+              )}
+            </Field>
+            <Styled.CreateButton
+              type="submit"
+              isShadow
+              id="button-crete-title"
+              disabled={!values.todoTitle}
+            >
+              Create
+            </Styled.CreateButton>
+          </form>
+        )}
+      </Form>
     </Styled.InputContainer>
   );
 };
