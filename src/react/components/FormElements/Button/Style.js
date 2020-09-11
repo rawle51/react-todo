@@ -19,6 +19,8 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   outline: none;
+  opacity: 1;
+  transition: all 0.24s cubic-bezier(0.55, 0, 0.1, 1);
 
   &:hover {
     background-color: rgba(158,158,158,.2);
@@ -28,9 +30,12 @@ export const Button = styled.button`
     background-color: rgba(158,158,158,.4);
   }
 
-  ${({ isShadow }) => isShadow && css`
+  ${({ disabled }) => disabled && css`
+    opacity: 0.4;
+  `};
+
+  ${({ isShadow, disabled }) => isShadow && !disabled && css`
     box-shadow: 0 17px 11px -10px rgba(0, 0, 0, 0.2);
-    transition: all 0.14s cubic-bezier(0.55, 0, 0.1, 1);
 
     &:hover {
       transform: scale(1.05);

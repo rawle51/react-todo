@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import { node, string, func } from 'prop-types';
+import { string, func } from 'prop-types';
 
 import * as Styled from './Style';
 
 export const Input = memo(({
-  id = null,
-  name = null,
+  id,
+  name,
   value,
   onChange,
   onFocus,
@@ -25,18 +25,20 @@ export const Input = memo(({
   />
 ));
 
-Input.propTypes = {
+Input.defaultProps = {
   onFocus: Function.prototype,
   onBlur: Function.prototype,
+  id: null,
   placeholder: '',
+  name: null,
 };
 
 Input.propTypes = {
-  id: node.isRequired,
-  name: string.isRequired,
   value: string.isRequired,
   onChange: func.isRequired,
-  onFocus: func.isRequired,
-  onBlur: func.isRequired,
-  placeholder: string.isRequired,
+  onFocus: func,
+  onBlur: func,
+  id: string,
+  name: string,
+  placeholder: string,
 };

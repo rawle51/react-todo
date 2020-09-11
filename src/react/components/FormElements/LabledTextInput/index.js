@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { string, func, bool } from 'prop-types';
 
 import { Input } from '../Input';
@@ -13,12 +13,12 @@ export const LabledTextInput = memo(({
   isDefaultFocused,
 }) => {
   const [isFocused, setFocus] = useState(isDefaultFocused);
-  const onFocus = () => setFocus(true);
-  const onBlur = () => !value && setFocus(false);
+  const onFocus = useCallback(() => setFocus(true), [setFocus]);
+  const onBlur = useCallback(() => !value && setFocus(false), [value, setFocus]);
 
   return (
     <Styled.Container>
-      <Styled.Label htmlFor={name} isFocused={isFocused}>
+      <Styled.Label htmlFor={id} isFocused={isFocused}>
         {label}
       </Styled.Label>
       <Input

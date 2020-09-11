@@ -17,6 +17,7 @@ export const Label = styled.label`
   font-size: 16px;
   transform: translateY(-50%);
   transition: all .4s ease-in-out;
+  pointer-events: none;
 
   ${({ isFocused }) => isFocused && css`
     top: 6px;
