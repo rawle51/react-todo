@@ -25,7 +25,7 @@ export const Input = memo(({
   />
 ));
 
-Input.propTypes = {
+Input.defaultProps = {
   onFocus: Function.prototype,
   onBlur: Function.prototype,
   placeholder: '',

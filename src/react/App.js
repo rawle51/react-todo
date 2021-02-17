@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Footer } from './components/Footer';
@@ -10,8 +10,10 @@ export const App = () => (
     <GlobalStyle />
     <Router>
       <Switch>
-        {routes.map(({ component, path, exact }) => (
-          <Route path={path} component={component} exact={exact} />
+        {routes.map(({ component, path, exact, key }) => (
+          <Fragment key={key}>
+             <Route path={path} component={component} exact={exact} />
+          </Fragment>
         ))}
       </Switch>
     </Router>
